@@ -1,11 +1,12 @@
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: splunk-kubernetes-objects
   labels:
     app: splunk-kubernetes-objects
     version: 1.2.0
+  namespace: fluentd
 spec:
   selector:
     matchLabels:
@@ -23,9 +24,11 @@ spec:
     spec:
       serviceAccountName: splunk-kubernetes-objects
       terminationGracePeriodSeconds: 30
+      nodeSelector :
+        beta.kubernetes.io/os: linux
       containers:
       - name: splunk-fluentd-k8s-objects
-        image: splunk/kube-objects:1.1.0
+        image: artifact01do.uunet.arlington.predictivetechnologies.com:8081/registry-1.docker.io/splunk/kube-objects:1.1.0
         imagePullPolicy: IfNotPresent
         args:
         - "-c"

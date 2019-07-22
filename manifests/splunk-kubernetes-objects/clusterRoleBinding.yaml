@@ -13,4 +13,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: splunk-kubernetes-objects
-  namespace: default
+  namespace: fluentd

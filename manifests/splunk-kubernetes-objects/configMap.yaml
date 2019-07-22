@@ -6,6 +6,7 @@ metadata:
   labels:
     app: splunk-kubernetes-objects
     version: 1.2.0
+  namespace: fluentd
 data:
   fluent.conf: |
     <system>
